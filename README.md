@@ -8,7 +8,7 @@ on every `executeAction` and `dispatch`.
 npm install fluxible-plugin-react-perf 
 ```
 
-# Usage
+## Usage
 
 Simply plug the Plugin into any app to have it print out the `React.Perf` results after any 
 `executeAction` and `dispatch` call depending on the provided configuration options.
@@ -29,7 +29,7 @@ fluxible.plug(FluxibleProfilingPlugin({
 
 ```
 
-# Configuration Options
+## Configuration Options
 
 Globally enable or disable:
 
@@ -52,6 +52,6 @@ Make the output even more verbose for further debuggin:
   * **verbose** (`true`): Print a notice whenever an action or dispatch starts executing, useful when debugging to see where things fail. 
   * **printActionPayload** (`false`): If `verbose` mode is enabled this will also print the payload provided to all executed actions.
 
-# License
+## License
 
 MIT
