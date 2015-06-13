@@ -29,23 +29,28 @@ fluxible.plug(FluxibleProfilingPlugin({
 
 ```
 
-# Configuration
+# Configuration Options
 
-Various configuration options are available:
+Globally enable or disable:
 
   * **enabled** (`true`): Turn the plugin on or off in its entirety.
-  * **verbose** (`true`): Print a notice whenever an action or dispatch starts executing, useful when debugging to see where things fail. 
-  * **printActionPayload** (`false`): If `verbose` mode is enabled this will also print the payload provided to all executed actions.
-  
-  
-  * **printActionDuration** (`true`): Print the time elapsed from a call to executeAction until its `done` method is called or `Promise` resolved. 
-  * **printDispatchDuration** (`true`): Print the time it takes to execute a `dispatch` from within an action creator.
-   
 
+Enable/disable the various `React.Perf` outputs:
+  
   * **printInclusive** (`true`): Enable/Disable printing the [Perf.printInclusive](https://facebook.github.io/react/docs/perf.html#perf.printinclusivemeasurements) measurements.
   * **printExclusive** (`false`): Enable/Disable printing the [Perf.printExclusive](https://facebook.github.io/react/docs/perf.html#perf.printexclusivemeasurements) measurements.
   * **printWasted** (`true`): Enable/Disable printing the [Perf.printWasted](https://facebook.github.io/react/docs/perf.html#perf.printwastedmeasurements) measurements.
   * **printDOM** (`false`): Enable/Disable printing the [Perf.printDOM](https://facebook.github.io/react/docs/perf.html#perf.printdommeasurements) measurements.
+
+Print the duration of the actions and dispatches themselves:
+
+  * **printActionDuration** (`true`): Print the time elapsed from a call to executeAction until its `done` method is called or `Promise` resolved. 
+  * **printDispatchDuration** (`true`): Print the time it takes to execute a `dispatch` from within an action creator.
+
+Make the output even more verbose for further debuggin:
+  
+  * **verbose** (`true`): Print a notice whenever an action or dispatch starts executing, useful when debugging to see where things fail. 
+  * **printActionPayload** (`false`): If `verbose` mode is enabled this will also print the payload provided to all executed actions.
 
 # License
 
