@@ -1,0 +1,29 @@
+{
+  "name": "fluxible-plugin-react-perf",
+  "version": "0.1.0",
+  "description": "A fluxible plugin that runs the React.Perf tools on every `executeAction` and `dispatch`.",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^0.13.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marnusw/fluxible-plugin-react-perf"
+  },
+  "keywords": [
+    "fluxible",
+    "react",
+    "react.Perf",
+    "performance",
+    "profiling"
+  ],
+  "author": "Marnus Weststrate <marnusw@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marnusw/fluxible-plugin-react-perf/issues"
+  },
+  "homepage": "https://github.com/marnusw/fluxible-plugin-react-perf"
+}
