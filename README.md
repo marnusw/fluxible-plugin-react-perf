@@ -47,7 +47,7 @@ Print the duration of the actions and dispatches themselves:
   * **printActionDuration** (`true`): Print the time elapsed from a call to executeAction until its `done` method is called or `Promise` resolved. 
   * **printDispatchDuration** (`true`): Print the time it takes to execute a `dispatch` from within an action creator.
 
-Make the output even more verbose for further debuggin:
+Make the output even more verbose for further debugging:
   
   * **verbose** (`true`): Print a notice whenever an action or dispatch starts executing, useful when debugging to see where things fail. 
   * **printActionPayload** (`false`): If `verbose` mode is enabled this will also print the payload provided to all executed actions.
