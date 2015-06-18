@@ -29,11 +29,11 @@ fluxible.plug(FluxibleProfilingPlugin({
 
 ```
 
-## Configuration Options
+## Configuration Options and Defaults
 
 Globally enable or disable:
 
-  * **enabled** (`true`): Turn the plugin on or off in its entirety.
+  * **enabled** (`false`): Turn the plugin on or off in its entirety.
 
 Enable/disable the various `React.Perf` outputs:
   
