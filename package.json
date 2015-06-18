@@ -1,6 +1,6 @@
 {
   "name": "fluxible-plugin-react-perf",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A fluxible plugin that runs the React.Perf tools on every `executeAction` and `dispatch`.",
   "main": "index.js",
   "dependencies": {
