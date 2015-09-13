@@ -1,6 +1,6 @@
-### 0.2.1 (13 September 2015)
+### 0.1.3 (13 September 2015)
 
-* [ENHANCEMENT] Code linting using eslint.
+* [ENHANCEMENT] Code linting using eslint (and fixed minor code format issues).
 * [DOCUMENTATION] Minor fixes and improvements.
 * [DOCUMENTATION] Added a proper license file.
 
