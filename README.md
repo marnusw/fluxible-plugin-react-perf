@@ -14,15 +14,13 @@ Simply plug the Plugin into any app to have it print out the `React.Perf` result
 `executeAction` and `dispatch` call depending on the provided configuration options.
 
 Since this functionality will typically not be used continuously the plugin can be disabled
-without leaving any overhead by providing `options.enabled = false`. It is often most 
-convenient to have the options stored in a central configuration file which can be edited
-to turn various options on or off.
+without leaving any overhead by providing `options.enabled = false`.
 
 ```javascript
 
-import FluxibleProfilingPlugin from 'fluxible-plugin-profiling';
+import ReactPerfPlugin from 'fluxible-plugin-react-perf';
 
-fluxible.plug(FluxibleProfilingPlugin({
+fluxible.plug(ReactPerfPlugin({
   enabled: true,
   // Overwrite default options
 ));
@@ -54,4 +52,5 @@ Make the output even more verbose for further debugging:
 
 ## License
 
-MIT
+This software is free to use under the MIT license.
+See the [LICENSE file](LICENSE.md) for license text and copyright information.
