@@ -46,8 +46,8 @@ module.exports = function fluxibleProfilingPlugin(options) {
   if (typeof performance != 'undefined') {
     // In supporting browsers
     currentTime = performance.now.bind(performance);
-
-  } else {
+  }
+  else {
     // On the Node.js server
     currentTime = Date.now.bind(Date);
     // Printing tables is not supported
@@ -56,7 +56,7 @@ module.exports = function fluxibleProfilingPlugin(options) {
       printExclusive: false,
       printWasted: false,
       printDOM: false
-    })
+    });
   }
 
 
@@ -121,7 +121,7 @@ module.exports = function fluxibleProfilingPlugin(options) {
     executeAction(action, payload, function() {
       printActionDuration(action.name, startTime);
       done.apply(null, arguments);
-    })
+    });
   }
 
   function dispatchProfiled(dispatch, eventName, payload) {
