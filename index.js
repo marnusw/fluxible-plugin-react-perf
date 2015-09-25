@@ -4,7 +4,8 @@
  */
 'use strict';
 /*global performance*/
-var React = require('react/addons');
+var Perf = require('react-addons-perf');
+var objectAssign = require('react/lib/Object.assign');
 
 
 /**
@@ -28,10 +29,9 @@ var React = require('react/addons');
  */
 module.exports = function fluxibleProfilingPlugin(options) {
 
-  var Perf = React.addons.Perf;
   var currentTime;
 
-  var opts = React.__spread({
+  var opts = objectAssign({
     enabled: false,
     verbose: true,
     printActionDuration: true,
@@ -41,7 +41,7 @@ module.exports = function fluxibleProfilingPlugin(options) {
     printExclusive: false,
     printWasted: true,
     printDOM: false
-  }, options || {});
+  }, options);
 
   if (typeof performance != 'undefined') {
     // In supporting browsers
@@ -51,7 +51,7 @@ module.exports = function fluxibleProfilingPlugin(options) {
     // On the Node.js server
     currentTime = Date.now.bind(Date);
     // Printing tables is not supported
-    opts = React.__spread(opts, {
+    opts = objectAssign(opts, {
       printInclusive: false,
       printExclusive: false,
       printWasted: false,

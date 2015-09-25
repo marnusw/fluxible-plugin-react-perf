@@ -4,7 +4,10 @@
   "description": "A fluxible plugin that runs the React.Perf tools on every `executeAction` and `dispatch`.",
   "main": "index.js",
   "peerDependencies": {
-    "react": "^0.13.3"
+    "react": "0.14.0-rc1"
+  },
+  "dependencies": {
+    "react-addons-perf": "0.14.0-rc1"
   },
   "devDependencies": {
     "babel-eslint": "^4.1.1",
