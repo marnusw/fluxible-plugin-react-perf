@@ -87,7 +87,7 @@ module.exports = function fluxibleProfilingPlugin(options) {
                 console.log('EXECUTING', action.name, 'ACTION from a Component');
               }
               return fluxibleExecuteAction.call(componentContext, action, payload);
-            }
+            };
           }
         },
         /**
@@ -95,7 +95,7 @@ module.exports = function fluxibleProfilingPlugin(options) {
          *
          * @param {Object} actionContext
          */
-        plugActionContext: function(actionContext, context) {
+        plugActionContext: function(actionContext) {
           if (opts.enabled) {
             var fluxibleExecuteAction = actionContext.executeAction;
             var fluxibleDispatch = actionContext.dispatch;
@@ -112,7 +112,7 @@ module.exports = function fluxibleProfilingPlugin(options) {
 
               return fluxibleExecuteAction.call(actionContext, action, payload, callback)
                 .then(printActionDuration.bind(null, action.name, currentTime()));
-            }
+            };
 
 
             actionContext.dispatch = function dispatchProfiled(eventName, payload) {

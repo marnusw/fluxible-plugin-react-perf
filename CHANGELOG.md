@@ -1,4 +1,4 @@
-### 0.2.0 (24 September 2015)
+### 0.2.0 (29 September 2015)
 
 * [ENHANCEMENT] Works with Fluxible `1.0.0-rc1`.
 * [UPGRADE] `react-addons-perf` will be installed as a dependency.
