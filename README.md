@@ -8,6 +8,8 @@ on every `executeAction` and `dispatch`.
 npm install fluxible-plugin-react-perf 
 ```
 
+*Note:* This version requires React.js `>0.14.0-rc1`, to use React `0.13.x`, install version `0.1.3` of this plugin.
+
 ## Usage
 
 Simply plug the Plugin into any app to have it print out the `React.Perf` results after any 

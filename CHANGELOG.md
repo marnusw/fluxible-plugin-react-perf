@@ -1,7 +1,6 @@
 ### 0.2.0 (24 September 2015)
 
-*Requires React.js ^0.14.0, otherwise stick with v0.1.3 of this plugin.*
-
+* [ENHANCEMENT] Works with Fluxible `1.0.0-rc1`.
 * [UPGRADE] `react-addons-perf` will be installed as a dependency.
 * [UPGRADE] Requires React.js `>=v0.14.0-rc1`.
 

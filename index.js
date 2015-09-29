@@ -79,8 +79,15 @@ module.exports = function fluxibleProfilingPlugin(options) {
          */
         plugComponentContext: function(componentContext) {
           if (opts.enabled) {
-            componentContext.executeAction
-              = executeProfiledAction.bind(componentContext, componentContext.executeAction, 'Component');
+            var fluxibleExecuteAction = componentContext.executeAction;
+
+            componentContext.executeAction = function executeVerboseAction(action, payload) {
+              if (opts.verbose) {
+                console.log('---------');
+                console.log('EXECUTING', action.name, 'ACTION from a Component');
+              }
+              return fluxibleExecuteAction.call(componentContext, action, payload);
+            }
           }
         },
         /**
@@ -88,55 +95,44 @@ module.exports = function fluxibleProfilingPlugin(options) {
          *
          * @param {Object} actionContext
          */
-        plugActionContext: function(actionContext) {
+        plugActionContext: function(actionContext, context) {
           if (opts.enabled) {
-            actionContext.executeAction
-              = executeProfiledAction.bind(actionContext, actionContext.executeAction, 'Action');
-            actionContext.dispatch = dispatchProfiled.bind(actionContext, actionContext.dispatch);
+            var fluxibleExecuteAction = actionContext.executeAction;
+            var fluxibleDispatch = actionContext.dispatch;
+
+
+            actionContext.executeAction = function executeProfiledAction(action, payload, callback) {
+              if (opts.verbose) {
+                console.log('---------');
+                console.log('EXECUTING', action.name, 'ACTION from an Action');
+                if (opts.printActionPayload) {
+                  console.log(payload);
+                }
+              }
+
+              return fluxibleExecuteAction.call(actionContext, action, payload, callback)
+                .then(printActionDuration.bind(null, action.name, currentTime()));
+            }
+
+
+            actionContext.dispatch = function dispatchProfiled(eventName, payload) {
+              if (opts.verbose) {
+                console.log('Dispatching:', eventName);
+              }
+
+              var startTime = currentTime();
+              Perf.start();
+
+              fluxibleDispatch.call(actionContext, eventName, payload);
+
+              Perf.stop();
+              printReactMeasurements(eventName, startTime);
+            };
           }
         }
       };
     }
   };
-
-  function executeProfiledAction(executeAction, sourceType, action, payload, done) {
-    if (opts.verbose) {
-      console.log('---------');
-      console.log('EXECUTING', action.name, 'ACTION from a', sourceType);
-      if (opts.printActionPayload) {
-        console.log(payload);
-      }
-    }
-
-    var startTime = currentTime();
-
-    if (!done) {
-      var result = executeAction(action, payload);
-      if (result) {
-        result.then(printActionDuration.bind(null, action.name, startTime));
-      }
-      return result;
-    }
-
-    executeAction(action, payload, function() {
-      printActionDuration(action.name, startTime);
-      done.apply(null, arguments);
-    });
-  }
-
-  function dispatchProfiled(dispatch, eventName, payload) {
-    if (opts.verbose) {
-      console.log('Dispatching:', eventName);
-    }
-
-    var startTime = currentTime();
-    Perf.start();
-
-    dispatch(eventName, payload);
-
-    Perf.stop();
-    printReactMeasurements(eventName, startTime);
-  }
 
   function printActionDuration(actionName, startTime) {
     if (opts.printActionDuration) {
