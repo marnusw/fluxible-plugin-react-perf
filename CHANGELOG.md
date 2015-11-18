@@ -1,3 +1,7 @@
+### 0.2.1 (18 November 2015)
+
+* [BUGFIX] Fix properly return promise from printActionDuration(). (#1)
+
 ### 0.2.0 (29 September 2015)
 
 * [ENHANCEMENT] Works with Fluxible `1.0.0-rc1`.
