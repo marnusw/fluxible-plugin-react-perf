@@ -134,11 +134,12 @@ module.exports = function fluxibleProfilingPlugin(options) {
     }
   };
 
-  function printActionDuration(actionName, startTime) {
+  function printActionDuration(actionName, startTime, promiseResult) {
     if (opts.printActionDuration) {
       console.log('FINISHED executing', actionName + ', duration:', msSince(startTime));
       consoleBlankLine();
     }
+    return promiseResult;
   }
 
   function printReactMeasurements(eventName, startTime) {
