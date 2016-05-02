@@ -5,8 +5,6 @@
 'use strict';
 /*global performance*/
 var Perf = require('react-addons-perf');
-var objectAssign = require('react/lib/Object.assign');
-
 
 /**
  * @class ReactPerfPlugin
@@ -31,7 +29,7 @@ module.exports = function fluxibleProfilingPlugin(options) {
 
   var currentTime;
 
-  var opts = objectAssign({
+  var opts = Object.assign({
     enabled: false,
     verbose: true,
     printActionDuration: true,
@@ -51,7 +49,7 @@ module.exports = function fluxibleProfilingPlugin(options) {
     // On the Node.js server
     currentTime = Date.now.bind(Date);
     // Printing tables is not supported
-    opts = objectAssign(opts, {
+    opts = Object.assign(opts, {
       printInclusive: false,
       printExclusive: false,
       printWasted: false,
