@@ -5,7 +5,7 @@
 'use strict';
 /*global performance*/
 var Perf = require('react-addons-perf');
-var objectAssign = require('react/lib/Object.assign');
+var objectAssign = require('object-assign');
 
 
 /**

@@ -1,3 +1,8 @@
+### 1.0.0 (25 May 2016)
+
+* [BUGFIX] Using `object-assign` since `react` no longer provides its own polyfill.
+* [UPGRADE] `react` and `react-addons-perf` both required as peer dependencies.
+
 ### 0.2.1 (18 November 2015)
 
 * [BUGFIX] Fix properly return promise from printActionDuration(). (#1)
